@@ -41,12 +41,14 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
             }
             
             tapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            let exitPanGesture = UIPanGestureRecognizer()
-            exitPanGesture.addTarget(self, action:#selector(SideMenuTransition.handleHideMenuPan(_:)))
-            let exitTapGesture = UITapGestureRecognizer()
-            exitTapGesture.addTarget(self, action: #selector(SideMenuTransition.handleHideMenuTap(_:)))
-            tapView.addGestureRecognizer(exitPanGesture)
-            tapView.addGestureRecognizer(exitTapGesture)
+            if !sideMenuManager.menuPresentingViewControllerDismissDisabled {
+              let exitPanGesture = UIPanGestureRecognizer()
+              exitPanGesture.addTarget(self, action:#selector(SideMenuTransition.handleHideMenuPan(_:)))
+              let exitTapGesture = UITapGestureRecognizer()
+              exitTapGesture.addTarget(self, action: #selector(SideMenuTransition.handleHideMenuTap(_:)))
+              tapView.addGestureRecognizer(exitPanGesture)
+              tapView.addGestureRecognizer(exitTapGesture)
+            }
         }
     }
     internal weak var statusBarView: UIView? {

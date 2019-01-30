@@ -104,6 +104,9 @@ open class SideMenuManager: NSObject {
     
     /// Enable or disable interaction with the presenting view controller while the menu is displayed. Enabling may make it difficult to dismiss the menu or cause exceptions if the user tries to present and already presented menu. Default is false.
     open var menuPresentingViewControllerUserInteractionEnabled: Bool = false
+  
+    /// Enable or disable the menu dismissal via tap or pan gestures
+    open var menuPresentingViewControllerDismissDisabled: Bool = false
     
     /// The strength of the parallax effect on the existing view controller. Does not apply to `menuPresentMode` when set to `ViewSlideOut`. Default is 0.
     open var menuParallaxStrength: Int = 0
